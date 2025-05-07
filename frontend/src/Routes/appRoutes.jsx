@@ -2,6 +2,7 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ProtectedAdminRoute from '../components/ProtectedAdminRoute';
+import ProtectedUserRoute from '../components/ProtectedUserRoute';
 
 import MainLayout from '../Layout/mainLayout';
 import AdminLayout from '../Layout/AdminLayout';
@@ -11,7 +12,9 @@ const HomePage = lazy(() => import('../Pages/user/HomePage'));
 const Login = lazy(() => import('../Pages/user/Login.jsx'));
 const Register = lazy(() => import('../Pages/user/Register.jsx'));
 const EventForm = lazy(() => import('../Pages/user/EventForm.jsx'));
-const RegisterEvent = lazy(() => import('../Pages/user/RegisterEvent.jsx'));
+const CreateEvent = lazy(() => import('../Pages/user/CreateEvent.jsx'));
+const EventDetailsUser = lazy(() => import('../Pages/user/EventDetails.jsx'));
+const Event = lazy(() => import('../Pages/user/Event.jsx'));
 
 // Lazy-loaded Admin Pages
 const AdminDashboard = lazy(() => import('../Pages/admin/AdminDashboard.jsx'));
@@ -28,8 +31,16 @@ const AppRoutes = () => {
                         <Route path="/" element={<HomePage />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
-                        <Route path="/create-event" element={<EventForm />} />
-                        <Route path="/register-event/:eventId" element={<RegisterEvent />} />
+
+                        {/* Event nested routes */}
+                        <Route path='/event' element={<ProtectedUserRoute />}>
+                            <Route path="/event" element={<Event />}>
+                                <Route path="create-event" element={<CreateEvent />} />
+                                <Route path="my-events" element={<EventForm />} />
+                                <Route path=":id" element={<EventDetailsUser/>} />                               
+                                {/* <Route path="register/:id" element={<RegisterEvent />} /> */}
+                            </Route>
+                        </Route>
                     </Route>
 
                     {/* Admin Routes */}

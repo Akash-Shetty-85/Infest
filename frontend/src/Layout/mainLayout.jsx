@@ -5,16 +5,45 @@ import { toast } from 'react-toastify';
 const MainLayout = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isAdmin, setIsAdmin] = useState(false);
+    const [userId, setUserId] = useState(null);
     const navigate = useNavigate();
 
+    // Check if user is logged in and if so, set user details
     useEffect(() => {
-        const token = localStorage.getItem('token');
-        setIsLoggedIn(!!token);
+        const checkAuth = () => {
+            const token = localStorage.getItem('token');
+            const storedUserId = localStorage.getItem('userId');
+            const storedIsAdmin = localStorage.getItem('user') === 'true';
+
+            if (token && storedUserId) {
+                setIsLoggedIn(true);
+                setUserId(storedUserId);
+                setIsAdmin(storedIsAdmin);
+            } else {
+                setIsLoggedIn(false);
+                setUserId(null);
+                setIsAdmin(false);
+            }
+        };
+
+        checkAuth(); // Initial check
+
+        // Listen for auth changes
+        window.addEventListener('authChanged', checkAuth);
+
+        return () => {
+            window.removeEventListener('authChanged', checkAuth);
+        };
     }, []);
 
     const handleLogout = () => {
         localStorage.removeItem('token');
+        localStorage.removeItem('userId');
+        localStorage.removeItem('user');
         setIsLoggedIn(false);
+        setUserId(null);
+        setIsAdmin(false);
         toast.success('Logged out successfully!');
         navigate('/');
     };
@@ -33,7 +62,12 @@ const MainLayout = () => {
                         <Link to="/" className="text-gray-700 hover:text-blue-600">Home</Link>
 
                         {isLoggedIn && (
-                            <Link to="/create-event" className="text-gray-700 hover:text-blue-600">Create Event</Link>
+                            <>
+                                <Link to="/event" className="text-gray-700 hover:text-blue-600">Event</Link>
+                                {isAdmin && (
+                                    <Link to="/admin" className="text-gray-700 hover:text-blue-600">Admin</Link>
+                                )}
+                            </>
                         )}
 
                         {isLoggedIn ? (
@@ -72,7 +106,12 @@ const MainLayout = () => {
                         <Link to="/" className="block text-gray-700 hover:text-blue-600">Home</Link>
 
                         {isLoggedIn && (
-                            <Link to="/create-event" className="block text-gray-700 hover:text-blue-600">Create Event</Link>
+                            <>
+                                <Link to="/event" className="block text-gray-700 hover:text-blue-600">Event</Link>
+                                {isAdmin && (
+                                    <Link to="/admin" className="block text-gray-700 hover:text-blue-600">Admin</Link>
+                                )}
+                            </>
                         )}
 
                         {isLoggedIn ? (

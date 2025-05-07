@@ -4,9 +4,10 @@ import { Navigate, Outlet } from 'react-router-dom';
 
 const ProtectedAdminRoute = () => {
     const token = localStorage.getItem('token');
-    const user = JSON.parse(localStorage.getItem('user'));
+    const user = localStorage.getItem('user');
 
-    if (!token || !user?.isAdmin) {
+
+    if (!token || user) {
         return <Navigate to="/" replace />;
     }
 

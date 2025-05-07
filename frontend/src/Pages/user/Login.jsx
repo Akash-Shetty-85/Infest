@@ -29,8 +29,13 @@ const Login = () => {
             if (res.data.token) {
                 // Store the JWT token in localStorage
                 localStorage.setItem('token', res.data.token);
+                localStorage.setItem('userId', res.data.userId);
+                localStorage.setItem('user',res.data.isAdmin);
                 toast.success('Login successful!');
                 // Redirect user to homepage or dashboard
+                if(res.data.isAdmin) {
+                    window.location.href = '/admin';
+                }
                 window.location.href = '/';
             } else {
                 toast.error('Login failed, try again.');
