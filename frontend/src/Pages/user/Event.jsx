@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import EventCard from '../../components/eventcard';
+
 
 const Event = () => {
     const [events, setEvents] = useState([]);
     const [loading, setLoading] = useState(true);
     const location = useLocation();
+    const navigate = useNavigate();
 
     const fetchEvents = async () => {
         try {
@@ -23,6 +25,10 @@ const Event = () => {
         fetchEvents();
     }, []);
 
+    const handleClick = (id) => {
+        console.log(id);
+        navigate(`/event/${id}`);
+    };
     // Check if user is on the base /event route
     const isBaseRoute = location.pathname === '/event';
 
@@ -46,7 +52,7 @@ const Event = () => {
                     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                         {events.map(event =>
                             event?._id && event.status === 'accepted' ? (
-                                <EventCard key={event._id} event={event} />
+                                <EventCard key={event._id} event={event} onClick={() => handleClick(event._id)} />
                             ) : null
                         )}
                     </div>
