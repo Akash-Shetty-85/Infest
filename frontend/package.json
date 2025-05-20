@@ -10,6 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.13",
+    "@radix-ui/react-separator": "^1.1.6",
+    "@radix-ui/react-slot": "^1.2.2",
+    "@radix-ui/react-tooltip": "^1.2.6",
     "@tailwindcss/vite": "^4.1.5",
     "animate.css": "^4.1.1",
     "axios": "^1.9.0",
@@ -22,11 +26,8 @@
     "react-router-dom": "^7.5.3",
     "react-slick": "^0.30.3",
     "react-toastify": "^11.0.5",
-<<<<<<< HEAD
     "slick-carousel": "^1.8.1",
-=======
     "tailwind-merge": "^3.3.0",
->>>>>>> 119cd269a5d6f22283d83c9c8b17585fafb7536f
     "tailwindcss": "^4.1.5"
   },
   "devDependencies": {

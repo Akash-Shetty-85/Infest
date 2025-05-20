@@ -1,8 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { useOutletContext } from 'react-router-dom';
+const [events] = useOutletContext();
 
 const EventDetails = () => {
     return (
-        <div>EventDetails</div>
+        <div>
+
+        </div>
     )
 }
 
