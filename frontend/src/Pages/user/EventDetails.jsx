@@ -69,7 +69,7 @@ const EventDetails = () => {
 
     return (
         <div className="max-w-3xl mx-auto p-6 bg-white shadow rounded-xl">
-            <h1 className="text-3xl font-bold mb-4 text-blue-700">{event.name}</h1>
+            <h1 className="text-3xl font-bold mb-4 text-pink-700">{event.name}</h1>
             <p className="text-gray-700"><strong>Duration:</strong> {event.duration}</p>
             <p className="text-gray-700"><strong>Date:</strong> {new Date(event.date).toLocaleString()}</p>
             <p className="text-gray-700"><strong>Description:</strong> {event.description}</p>

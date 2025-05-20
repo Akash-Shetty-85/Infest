@@ -1,73 +1,160 @@
-// import React from 'react'
+// import React from 'react';
+// import { Link } from 'react-router-dom';
+// import 'animate.css';
+// import homeImage from "../../assets/images/page.png";
 
-// const HomePage = () => {
-//     return (
-//         <div>HomePage</div>
-//     )
+
+// function HomePage() {
+//   return (
+//     <div className="min-h-screen bg-[#0f0f0f] text-white font-sans">
+
+//       <section
+//   className="text-center py-20 px-6 bg-cover  bg-center bg-no-repeat animate__animated animate__fadeIn"
+//   style={{
+//     backgroundImage: `url(${homeImage})`,
+//     backgroundColor: "#181818", // fallback color
+//   }}
+// >
+//   <h2 className="text-5xl font-extrabold mb-4 text-white animate__animated animate__fadeInDown">
+//     The Best of INFEST 2025!
+//   </h2>
+//   <p className="text-lg text-[#cccccc] max-w-2xl mx-auto mb-6">
+//     Join the most electrifying college fest experience. Real-time updates, streamlined planning, and unforgettable moments await!
+//   </p>
+// </section>
+
+
+
+//       {/* Services Section */}
+//      <section className="px-8 py-16 bg-[#0f0f0f] animate__animated animate__fadeInUp">
+//         <h3 className="text-4xl font-bold text-center text-white mb-12">Events</h3>
+//       </section>
+
+//       {/* About Section */}
+//       <section className="px-8 py-16 bg-[#181818] animate__animated animate__fadeInUp">
+//         <h3 className="text-3xl font-extrabold text-white  mb-6">About INFEST</h3>
+//         <p className="text-[#bbbbbb] text-lg leading-relaxed max-w-4xl mx-auto">
+//           <span className="font-semibold text-[#e6007a]">INFEST</span> is a platform crafted to revolutionize college event planning.
+//           From live updates and intelligent dashboards to secure logins and paperless approvals, INFEST ensures a seamless and engaging fest experience.
+//         </p>
+//       </section>
+
+//     </div>
+//   );
 // }
 
-// export default HomePage
-
+// export default HomePage;
 
 
 import React from 'react';
+import { Carousel } from 'react-responsive-carousel';
 import { Link } from 'react-router-dom';
 import 'animate.css';
+import 'react-responsive-carousel/lib/styles/carousel.min.css'; // required styles
+import homeImage from "../../assets/images/page.png";
+import carousel3 from "../../assets/images/carousel3.jpg";
+import carousel2 from "../../assets/images/carousel2.jpg";
+import carousel4 from "../../assets/images/carousel4.jpg";
+import carousel1 from "../../assets/images/carousel1.jpg";
 
 function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-fuchsia-100 to-pink-100 text-gray-800 font-sans">
-
+    <div className="min-h-screen bg-[#0f0f0f] text-white font-sans">
       {/* Hero Section */}
-      <section className="text-center py-20 px-6 bg-gradient-to-tr from-purple-300 to-pink-500 text-white animate__animated animate__fadeIn">
-        <h2 className="text-4xl font-extrabold mb-4 animate__animated animate__fadeInDown">
-          Crafting Timeless Celebrations
+      <section
+        className="text-center py-20 px-6 bg-cover bg-center bg-no-repeat animate__animated animate__fadeIn"
+        style={{
+          backgroundImage: `url(${homeImage})`,
+          backgroundColor: "#181818",
+        }}
+      >
+        <h2 className="text-5xl font-extrabold mb-4 text-white animate__animated animate__fadeInDown">
+  The Best of <span className="text-[#e6007a]">INFEST</span> 2025!
         </h2>
-        <p className="text-lg mb-8 animate__animated animate__fadeInUp animate__delay-1s">
-          Engage. Elevate. Experience.
-        </p>
-        <button className="bg-purple-600 text-white px-8 py-3 rounded-full shadow-lg hover:bg-purple-100 hover:scale-105 transition transform duration-300 font-semibold">
-          Get Started
-        </button>
-      </section>
-
-      {/* Events Section */}
-      <section className="mt-20 px-8">
-        <div className="flex justify-between items-center mb-6">
-          <h3 className="text-3xl font-bold text-purple-700 animate__animated animate__fadeInLeft">Upcoming Events</h3>
-          <Link to="/event" className="text-purple-600 hover:underline text-sm font-medium animate__animated animate__fadeInRight">
-            See all
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 animate__animated animate__fadeInUp animate__delay-1s">
-          {[1, 2, 3, 4].map((item) => (
-            <div key={item} className="bg-white p-4 rounded-xl shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
-              <div className="w-full h-32 bg-gradient-to-r from-purple-300 to-pink-300 rounded mb-4"></div>
-              <p className="text-base font-semibold text-gray-800">Khel Khoj</p>
-              <div className="flex justify-between items-center mt-3 text-purple-700">
-                <button className="bg-purple-600 text-white px-4 py-1.5 rounded-full hover:bg-purple-700 text-sm transition duration-200">
-                  Register
-                </button>
-                <span className="text-sm cursor-pointer hover:underline">More Info</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section className="mt-24 px-8 py-16 bg-white animate__animated animate__fadeInUp">
-        <h3 className="text-3xl md:text-4xl font-extrabold text-purple-700 mb-6">About Us</h3>
-        <p className="text-gray-700 text-lg leading-relaxed max-w-4xl mx-auto">
-          <span className="font-semibold text-purple-600">INFEST</span> is a dynamic platform designed to simplify event planning and student engagement in college fests.
-          With real-time updates, role-based dashboards, secure login, and streamlined approvals, INFEST brings innovation and ease to college event management.
+        <p className="text-lg text-[#cccccc] max-w-2xl mx-auto mb-6">
+          Join the most electrifying college fest experience. Real-time updates, streamlined planning, and unforgettable moments await!
         </p>
       </section>
 
+      {/* Carousel Section */}
+<section className="py-5 bg-[#121212]" aria-label="INFEST highlights carousel">
+  <div className="max-w-3xl mx-auto animate__animated animate__fadeIn rounded-lg overflow-visible shadow-lg relative">
+    <Carousel
+      autoPlay
+      infiniteLoop
+      showThumbs={false}
+      showStatus={false}
+      interval={1500}          // faster slide interval: 1.5 seconds
+      dynamicHeight={false}
+      transitionTime={300}     // faster transition: 0.3 seconds
+      swipeable
+      emulateTouch
+      centerMode={true}
+      centerSlidePercentage={60}
+      className=""
+    >
+      {[carousel3, carousel2, carousel4, carousel1].map((src, idx) => (
+        <div key={idx} className="relative overflow-hidden rounded-lg cursor-pointer shadow-lg">
+          <img
+            src={src}
+            alt={`INFEST fest activity ${idx + 1}`}
+            className="h-64 object-cover w-full rounded-lg transition-transform duration-500 ease-in-out transform"
+          />
+          <div
+            className="absolute bottom-4 left-4 bg-opacity-60 text-white rounded-md p-3 animate__animated animate__fadeInUp"
+            style={{ animationDelay: `${idx * 0.5}s` }}
+          >
+            {/* You can add captions here */}
+          </div>
+        </div>
+      ))}
+    </Carousel>
+
+    <style>{`
+      /* Scale down side slides */
+      .carousel .slide {
+        opacity: 0.6;
+        transform: scale(0.85);
+        transition: all 0.3s ease;
+        filter: brightness(0.8);
+      }
+      .carousel .slide.selected {
+        opacity: 1;
+        transform: scale(1);
+        filter: brightness(1);
+        z-index: 10;
+      }
+
+      /* Custom arrow hover glow */
+      .control-arrow {
+        filter: drop-shadow(0 0 5px #e6007a);
+        transition: transform 0.3s ease;
+        z-index: 20;
+      }
+      .control-arrow:hover {
+        transform: scale(1.2);
+      }
+    `}</style>
+  </div>
+</section>
+
+
+
+      {/* 🎯 Services Section */}
+      <section className="px-8 py-16 bg-[#0f0f0f] animate__animated animate__fadeInUp">
+        <h3 className="text-4xl font-bold text-center text-white mb-12">Events</h3>
+      </section>
+
+      {/* 🧾 About Section */}
+      <section className="px-8 py-16 bg-[#181818] animate__animated animate__fadeInUp">
+        <h3 className="text-3xl font-extrabold text-white mb-6">About INFEST</h3>
+        <p className="text-[#bbbbbb] text-lg leading-relaxed max-w-4xl mx-auto">
+          <span className="font-semibold text-[#e6007a]">INFEST</span> is a platform crafted to revolutionize college event planning.
+          From live updates and intelligent dashboards to secure logins and paperless approvals, INFEST ensures a seamless and engaging fest experience.
+        </p>
+      </section>
     </div>
   );
 }
 
 export default HomePage;
-

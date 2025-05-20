@@ -50,22 +50,22 @@ const MainLayout = () => {
 
     return (
         <>
-            <header className="bg-white shadow-md">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <header className="bg-[#0f0f0f] text-white font-sans shadow-md">
+                <div className="max-w-10xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
                     {/* Logo */}
-                    <Link to="/" className="text-xl font-bold text-blue-600">
-                        InFest
+                    <Link to="/" className="text-3xl font-bold text-[#e6007a]">
+                        INFEST
                     </Link>
 
                     {/* Desktop Navigation */}
                     <nav className="hidden md:flex space-x-6 items-center">
-                        <Link to="/" className="text-gray-700 hover:text-blue-600">Home</Link>
+                        <Link to="/" className="text-white hover:text-[#e6007a]">Home</Link>
 
                         {isLoggedIn && (
                             <>
-                                <Link to="/event" className="text-gray-700 hover:text-blue-600">Event</Link>
+                                <Link to="/event" className="text-white hover:text-[#e6007a]">Event</Link>
                                 {isAdmin && (
-                                    <Link to="/admin" className="text-gray-700 hover:text-blue-600">Admin</Link>
+                                    <Link to="/admin" className="text-white hover:text-[#e6007a]">Admin</Link>
                                 )}
                             </>
                         )}
@@ -79,8 +79,8 @@ const MainLayout = () => {
                             </button>
                         ) : (
                             <>
-                                <Link to="/register" className="text-gray-700 hover:text-blue-600">Register</Link>
-                                <Link to="/login" className="text-gray-700 hover:text-blue-600">Login</Link>
+                                <Link to="/register" className="text-white hover:text-[#e6007a]">Register</Link>
+                                <Link to="/login" className="text-white hover:text-[#e6007a]">Login</Link>
                             </>
                         )}
                     </nav>
@@ -103,13 +103,13 @@ const MainLayout = () => {
                 {/* Mobile Menu */}
                 {menuOpen && (
                     <div className="md:hidden px-4 pb-4 space-y-2">
-                        <Link to="/" className="block text-gray-700 hover:text-blue-600">Home</Link>
+                        <Link to="/" className="block text-gray-700 hover:text-[#e6007a]">Home</Link>
 
                         {isLoggedIn && (
                             <>
-                                <Link to="/event" className="block text-gray-700 hover:text-blue-600">Event</Link>
+                                <Link to="/event" className="block text-gray-700 hover:text-[#e6007a]">Event</Link>
                                 {isAdmin && (
-                                    <Link to="/admin" className="block text-gray-700 hover:text-blue-600">Admin</Link>
+                                    <Link to="/admin" className="block text-gray-700 hover:text-[#e6007a]">Admin</Link>
                                 )}
                             </>
                         )}
@@ -123,15 +123,15 @@ const MainLayout = () => {
                             </button>
                         ) : (
                             <>
-                                <Link to="/register" className="block text-gray-700 hover:text-blue-600">Register</Link>
-                                <Link to="/login" className="block text-gray-700 hover:text-blue-600">Login</Link>
+                                <Link to="/register" className="block text-gray-700 hover:text-[#e6007a]">Register</Link>
+                                <Link to="/login" className="block text-gray-700 hover:text-[#e6007a]">Login</Link>
                             </>
                         )}
                     </div>
                 )}
             </header>
 
-            <main className="min-h-screen px-4 py-6">
+            <main className="min-h-screen px-0 py-0.5">
                 <Outlet />
             </main>
 
@@ -143,3 +143,4 @@ const MainLayout = () => {
 };
 
 export default MainLayout;
+
