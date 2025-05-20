@@ -7,7 +7,7 @@ const ProtectedAdminRoute = () => {
     const user = localStorage.getItem('user');
 
 
-    if (!token || user) {
+    if (!token || !user) {
         return <Navigate to="/" replace />;
     }
 
