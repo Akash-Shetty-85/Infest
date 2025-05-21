@@ -1,8 +1,10 @@
 const Event = require('../models/Event');
+const User = require('../models/User'); // adjust path as necessary
 const mongoose = require('mongoose');
 
 // Create new event
 exports.createEvent = async (req, res) => {
+    console.log(req.user);
     try {
         const {
             name,
@@ -29,7 +31,8 @@ exports.createEvent = async (req, res) => {
             createdBy: req.user.userId,
         });
 
-        await newEvent.save();
+        const event = await newEvent.save();
+        console.log(event);
 
         // ✅ Update user's createdEvents array
         await User.findByIdAndUpdate(req.user.userId, {

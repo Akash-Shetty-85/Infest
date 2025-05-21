@@ -18,10 +18,11 @@ const Event = lazy(() => import('../Pages/user/Event.jsx'));
 const AllEvents = lazy(() => import('@/Pages/admin/AllEvents.jsx'))
 const PendingEvents = lazy(() => import('@/Pages/admin/PendingEvents.jsx'))
 const AcceptedEvents = lazy(() => import('@/Pages/admin/AcceptedEvents.jsx'))
+const AdminEventDetails = lazy(() => import('@/Pages/admin/AdminEventDetails.jsx'))
 
 // Lazy-loaded Admin Pages
 const AdminDashboard = lazy(() => import('../Pages/admin/AdminDashboard.jsx'));
-const EventDetails = lazy(() => import('../Pages/admin/EventDetails.jsx'));
+// const EventDetails = lazy(() => import('../Pages/admin/EventDetails.jsx'));
 
 const AppRoutes = () => {
     return (
@@ -49,11 +50,11 @@ const AppRoutes = () => {
                     {/* Admin Routes */}
                     <Route path="/admin" element={<ProtectedAdminRoute />}>
                         <Route element={<AdminLayout />}>
-                            <Route index element={<AdminDashboard />} />
+                            {/* <Route index element={<AdminDashboard />} /> */}
                             <Route path="events" element={<AllEvents />} />
                             <Route path="events/pending" element={<PendingEvents />} />
                             <Route path="events/accepted" element={<AcceptedEvents />} />
-                            <Route path="event/:id" element={<EventDetails />} />
+                            <Route path="event/:id" element={<AdminEventDetails />} />
                         </Route>
                     </Route>
 

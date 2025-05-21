@@ -16,7 +16,10 @@ const EventForm = () => {
           Authorization: `Bearer ${token}`
         }
       });
-      setEvents(response.data.userCreatedEvents || []);
+      setEvents(response.data.events || []);
+      console.log(response.data);
+
+      console.log(events);
     } catch (error) {
       console.error('Failed to fetch events:', error);
     } finally {

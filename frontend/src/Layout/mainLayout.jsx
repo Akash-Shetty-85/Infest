@@ -65,7 +65,7 @@ const MainLayout = () => {
                             <>
                                 <Link to="/event" className="text-white hover:text-[#e6007a]">Event</Link>
                                 {isAdmin && (
-                                    <Link to="/admin" className="text-white hover:text-[#e6007a]">Admin</Link>
+                                    <Link to="/admin/events" className="text-white hover:text-[#e6007a]">Admin</Link>
                                 )}
                             </>
                         )}

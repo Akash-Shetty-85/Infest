@@ -20,16 +20,16 @@ export function AppSidebar() {
             </SidebarHeader>
 
             <SidebarContent>
-                {/* <SidebarGroup label="Main">
+                <SidebarGroup label="Main">
                     <Link
-                        to="/admin"
+                        to="/"
                         className={`block px-4 py-2 hover:bg-gray-200 ${isActive("/admin") ? "bg-gray-300 font-semibold" : ""
                             }`}
                     >
                         <Home className="inline-block mr-2" />
-                        Dashboard
+                        Home
                     </Link>
-                </SidebarGroup> */}
+                </SidebarGroup>
 
                 <SidebarGroup label="Events">
                     <Link
