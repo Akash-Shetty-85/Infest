@@ -57,7 +57,7 @@ exports.getEvents = async (req, res) => {
         // Public: return all events
         const allEvents = await Event.find();
         // console.log(allEvents);
-        res.status(200).json({ message: 'All events fetched',allEvents });
+        res.status(200).json({ message: 'All events fetched', allEvents });
     } catch (error) {
         res.status(500).json({ message: 'Failed to fetch events', error: error.message });
     }
@@ -95,7 +95,7 @@ exports.deleteEvent = async (req, res) => {
             return res.status(403).json({ message: 'Not authorized to delete this event' });
         }
 
-        await event.remove();
+        await Event.findByIdAndDelete(id);
 
         // ✅ Remove event from user's createdEvents
         await User.findByIdAndUpdate(event.createdBy, {
