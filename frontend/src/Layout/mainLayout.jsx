@@ -131,12 +131,12 @@ const MainLayout = () => {
                 )}
             </header>
 
-            <main className="min-h-screen px-0 py-0.5">
+            <main className="min-h-screen px-0 bg-[#0f0f0f]">
                 <Outlet />
             </main>
 
-            <footer className="bg-gray-100 text-center py-4">
-                <p className="text-sm text-gray-500">© 2025 InFest. All rights reserved.</p>
+            <footer className=" text-center py-4 bg-[#0f0f0f] text-white">
+                <p className="text-0">© 2025 InFest. All rights reserved.</p>
             </footer>
         </>
     );

@@ -37,52 +37,72 @@ const AdminEventDetails = () => {
 
     const currentStatus = status || event.status;
 
-    return (
-        <div className="p-4">
-            <Breadcrumb>
-                <BreadcrumbList>
-                    <BreadcrumbItem>
-                        <BreadcrumbLink href="/admin/events">Admin</BreadcrumbLink>
-                    </BreadcrumbItem>
-                    <BreadcrumbSeparator />
-                    <BreadcrumbItem>
-                        <BreadcrumbLink>Events</BreadcrumbLink>
-                    </BreadcrumbItem>
-                    <BreadcrumbSeparator />
-                    <BreadcrumbItem>
-                        <BreadcrumbLink>{event._id}</BreadcrumbLink>
-                    </BreadcrumbItem>
-                </BreadcrumbList>
-            </Breadcrumb>
+return (
+  <div className="p-6 bg-white shadow-md rounded-xl max-w-3xl mx-auto">
+    <Breadcrumb>
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/admin/events">Admin</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbLink>Events</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbLink>{event._id}</BreadcrumbLink>
+        </BreadcrumbItem>
+      </BreadcrumbList>
+    </Breadcrumb>
 
-            <h1 className="text-2xl font-bold mb-2">{event.name || event.title}</h1>
-            <p className="text-gray-500 text-sm mb-4">
-                {new Date(event.date).toLocaleString()}
-            </p>
-            <p><strong>Description:</strong> {event.description}</p>
-            <p><strong>Organized By:</strong> {event.organizedBy}</p>
-            <p><strong>Location:</strong> {event.location}</p>
-            <p><strong>Status:</strong>
-                <span className={`ml-2 px-2 py-1 rounded text-white ${currentStatus === 'accepted' ? 'bg-green-500' :
-                    currentStatus === 'rejected' ? 'bg-red-500' :
-                        'bg-yellow-500'
-                    }`}>
-                    {currentStatus}
-                </span>
-            </p>
+    <h1 className="text-3xl font-bold mb-2 text-pink-700">
+      {event.name || event.title}
+    </h1>
+    <p className="text-gray-500 text-sm mb-4">
+      {new Date(event.date).toLocaleString()}
+    </p>
 
-            {currentStatus === 'pending' && (
-                <div className="mt-4 flex gap-2">
-                    <Button variant="default" onClick={() => handleStatusChange('accepted')}>
-                        Accept
-                    </Button>
-                    <Button variant="destructive" onClick={() => handleStatusChange('rejected')}>
-                        Reject
-                    </Button>
-                </div>
-            )}
-        </div>
-    );
+    <p className="text-gray-800 mb-2">
+      <strong>Description:</strong> {event.description}
+    </p>
+    <p className="text-gray-800 mb-2">
+      <strong>Organized By:</strong> {event.organizedBy}
+    </p>
+    <p className="text-gray-800 mb-2">
+      <strong>Location:</strong> {event.location}
+    </p>
+
+    <p className="text-gray-800 mb-4">
+      <strong>Status:</strong>
+      <span className={`ml-2 px-2 py-1 rounded-full text-white text-sm font-medium ${
+        currentStatus === 'accepted' ? 'bg-green-600' :
+        currentStatus === 'rejected' ? 'bg-red-600' :
+        'bg-yellow-500'
+      }`}>
+        {currentStatus.charAt(0).toUpperCase() + currentStatus.slice(1)}
+      </span>
+    </p>
+
+    {currentStatus === 'pending' && (
+      <div className="mt-4 flex gap-3">
+        <Button
+          variant="default"
+          onClick={() => handleStatusChange('accepted')}
+          className="bg-green-600 hover:bg-green-700"
+        >
+          Accept
+        </Button>
+        <Button
+          variant="destructive"
+          onClick={() => handleStatusChange('rejected')}
+          className="bg-red-600 hover:bg-red-700"
+        >
+          Reject
+        </Button>
+      </div>
+    )}
+  </div>
+);
 };
 
 export default AdminEventDetails;

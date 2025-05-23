@@ -1,51 +1,3 @@
-// import React from 'react';
-// import { Link } from 'react-router-dom';
-// import 'animate.css';
-// import homeImage from "../../assets/images/page.png";
-
-
-// function HomePage() {
-//   return (
-//     <div className="min-h-screen bg-[#0f0f0f] text-white font-sans">
-
-//       <section
-//   className="text-center py-20 px-6 bg-cover  bg-center bg-no-repeat animate__animated animate__fadeIn"
-//   style={{
-//     backgroundImage: `url(${homeImage})`,
-//     backgroundColor: "#181818", // fallback color
-//   }}
-// >
-//   <h2 className="text-5xl font-extrabold mb-4 text-white animate__animated animate__fadeInDown">
-//     The Best of INFEST 2025!
-//   </h2>
-//   <p className="text-lg text-[#cccccc] max-w-2xl mx-auto mb-6">
-//     Join the most electrifying college fest experience. Real-time updates, streamlined planning, and unforgettable moments await!
-//   </p>
-// </section>
-
-
-
-//       {/* Services Section */}
-//      <section className="px-8 py-16 bg-[#0f0f0f] animate__animated animate__fadeInUp">
-//         <h3 className="text-4xl font-bold text-center text-white mb-12">Events</h3>
-//       </section>
-
-//       {/* About Section */}
-//       <section className="px-8 py-16 bg-[#181818] animate__animated animate__fadeInUp">
-//         <h3 className="text-3xl font-extrabold text-white  mb-6">About INFEST</h3>
-//         <p className="text-[#bbbbbb] text-lg leading-relaxed max-w-4xl mx-auto">
-//           <span className="font-semibold text-[#e6007a]">INFEST</span> is a platform crafted to revolutionize college event planning.
-//           From live updates and intelligent dashboards to secure logins and paperless approvals, INFEST ensures a seamless and engaging fest experience.
-//         </p>
-//       </section>
-
-//     </div>
-//   );
-// }
-
-// export default HomePage;
-
-
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import { Link } from 'react-router-dom';
@@ -145,14 +97,9 @@ function HomePage() {
         <h3 className="text-4xl font-bold text-center text-white mb-12">Events</h3>
       </section>
 
-      {/* 🧾 About Section */}
-      <section className="px-8 py-16 bg-[#181818] animate__animated animate__fadeInUp">
-        <h3 className="text-3xl font-extrabold text-white mb-6">About INFEST</h3>
-        <p className="text-[#bbbbbb] text-lg leading-relaxed max-w-4xl mx-auto">
-          <span className="font-semibold text-[#e6007a]">INFEST</span> is a platform crafted to revolutionize college event planning.
-          From live updates and intelligent dashboards to secure logins and paperless approvals, INFEST ensures a seamless and engaging fest experience.
-        </p>
-      </section>
+      
+
+
     </div>
   );
 }
