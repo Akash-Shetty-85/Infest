@@ -32,6 +32,7 @@ const AdminCard = ({ event }) => {
         navigate(`/admin/event/${event._id}`);
     };
 
+   
     return (
         <motion.div
             whileHover={{ scale: 1.03 }}

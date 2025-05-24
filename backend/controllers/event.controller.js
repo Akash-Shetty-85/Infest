@@ -121,11 +121,13 @@ exports.updateEventStatus = async (req, res) => {
         return res.status(400).json({ message: 'Invalid status value' });
 
     try {
-        const event = await Event.findById(id);
-        if (!event) return res.status(404).json({ message: 'Event not found' });
+        const event = await Event.findByIdAndUpdate(
+            id,
+            { status },
+            { new: true, runValidators: true }
+        );
 
-        event.status = status;
-        await event.save();
+        if (!event) return res.status(404).json({ message: 'Event not found' });
 
         res.status(200).json({ message: `Event ${status} successfully`, event });
     } catch (error) {

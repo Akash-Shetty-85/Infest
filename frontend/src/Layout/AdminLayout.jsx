@@ -6,9 +6,9 @@ import axios from "axios";
 
 export default function AdminLayout() {
 
-    const [events, setEvents] = useState([])
+  const [events, setEvents] = useState([])
 
-   
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -22,13 +22,13 @@ export default function AdminLayout() {
 
     fetchData();
   }, []);
-    return (
-        <SidebarProvider>
-            <AppSidebar />
-            <main className="w-screen">
-                <SidebarTrigger  className="size-9 cursor-pointer"/>
-                <Outlet context={[events]} />
-            </main>
-        </SidebarProvider>
-    );
+  return (
+    <SidebarProvider>
+      <AppSidebar />
+      <main className="w-screen">
+        <SidebarTrigger className="size-9 cursor-pointer" />
+        <Outlet context={[events, setEvents]} />
+      </main>
+    </SidebarProvider>
+  );
 }
