@@ -12,6 +12,7 @@ const authenticate = (req, res, next) => {
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET || 'your_jwt_secret_key');
         req.user = decoded; // decoded token payload (should include isAdmin)
+        console.log("Decoded JWT:", decoded);
         next();
     } catch (err) {
         return res.status(401).json({ message: 'Invalid token' });
