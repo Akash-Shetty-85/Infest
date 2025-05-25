@@ -35,6 +35,7 @@ const AppRoutes = () => {
                         <Route path="/" element={<HomePage />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
+                        
 
                         {/* Event nested routes */}
                         <Route path='/event' element={<ProtectedUserRoute />}>
@@ -42,6 +43,7 @@ const AppRoutes = () => {
                                 <Route path="create-event" element={<CreateEvent />} />
                                 <Route path="my-events" element={<EventForm />} />
                                 <Route path=":id" element={<EventDetailsUser />} />
+                                
                                 {/* <Route path="register/:id" element={<RegisterEvent />} /> */}
                             </Route>
                         </Route>

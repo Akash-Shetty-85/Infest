@@ -1,38 +1,35 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import 'animate.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+
 import homeImage from "../../assets/images/page.png";
 import carousel3 from "../../assets/images/carousel3.jpg";
 import carousel2 from "../../assets/images/carousel2.jpg";
 import carousel4 from "../../assets/images/carousel4.jpg";
 import carousel1 from "../../assets/images/carousel1.jpg";
-import EventCard from "../../components/EventCard"; 
+import EventCard from "../../components/EventCard";
 
 function HomePage() {
+  const navigate = useNavigate();
+
   const featuredEvents = [
-    {
-      name: "Khel khoj",
-      duration: "3 hours",
-      date: "2025-05-20T10:00:00"
-    },
-    {
-      name: "Musical Night",
-      duration: "3 hours",
-      date: "2025-05-30T09:00:00"
-    },
-    {
-      name: "Hackathon",
-      duration: "2 hours",
-      date: "2025-05-22T10:00:00"
-    }
+    { name: "Khel Khoj", duration: "3 hours", date: "2025-05-20T10:00:00" },
+    { name: "Musical Night", duration: "3 hours", date: "2025-05-30T09:00:00" },
+    { name: "Hackathon", duration: "2 hours", date: "2025-05-22T10:00:00" }
   ];
+
+  const handleCardClick = () => {
+    navigate('/register');
+  };
 
   return (
     <div className="min-h-screen bg-[#0f0f0f] text-white font-sans">
-      {/* Hero Section */}
+
+      {/* 🎬 Hero Section */}
       <section
+        aria-label="Hero"
         className="text-center py-20 px-6 bg-cover bg-center bg-no-repeat animate__animated animate__fadeIn"
         style={{
           backgroundImage: `url(${homeImage})`,
@@ -47,8 +44,8 @@ function HomePage() {
         </p>
       </section>
 
-      {/* Carousel Section */}
-      <section className="py-5 bg-[#121212]">
+      {/* 📸 Carousel Section */}
+      <section aria-label="Event Highlights" className="py-10 bg-[#121212]">
         <div className="max-w-3xl mx-auto animate__animated animate__fadeIn rounded-lg overflow-visible shadow-lg relative">
           <Carousel
             autoPlay
@@ -67,12 +64,14 @@ function HomePage() {
               <div key={idx} className="relative overflow-hidden rounded-lg cursor-pointer shadow-lg">
                 <img
                   src={src}
-                  alt={`INFEST fest activity ${idx + 1}`}
+                  alt={`INFEST carousel image ${idx + 1}`}
                   className="h-64 object-cover w-full rounded-lg transition-transform duration-500 ease-in-out transform"
                 />
               </div>
             ))}
           </Carousel>
+
+          {/* Carousel Custom Styles */}
           <style>{`
             .carousel .slide {
               opacity: 0.6;
@@ -99,24 +98,19 @@ function HomePage() {
       </section>
 
       {/* 🎯 Events Section */}
-      <section className="px-8 py-16 bg-[#0f0f0f] animate__animated animate__fadeInUp">
-  <div className="max-w-7xl mx-auto">
-    {/* Header with Events on left and Show All on right */}
-    <div className="flex justify-between items-center mb-8">
-      <h3 className="text-4xl font-bold text-white">Events</h3>
-      <Link to="/event" className="text-[#e6007a] font-semibold hover:underline">
-        Show All &gt;
-      </Link>
-    </div>
+      <section aria-label="Featured Events" className="px-8 py-16 bg-[#0f0f0f] animate__animated animate__fadeInUp">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex justify-between items-center mb-8">
+            <h3 className="text-4xl font-bold">Events</h3>
+            <Link to="/register" className="text-[#e6007a] font-semibold hover:underline">
+              Show All &gt;
+            </Link>
+          </div>
 
-          {/* Event Cards Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {featuredEvents.map((event, idx) => (
-              <div key={idx} className="animate__animated animate__fadeInUp">
-                <EventCard
-                  event={event}
-                  onClick={() => console.log(`Clicked ${event.name}`)}
-                />
+              <div key={idx} className="transition-transform duration-300 transform hover:scale-[1.02]">
+                <EventCard event={event} onClick={handleCardClick} />
               </div>
             ))}
           </div>
@@ -124,8 +118,8 @@ function HomePage() {
       </section>
 
       {/* 🌟 About INFEST Section */}
-      <section className="bg-black text-white py-20 px-6 animate__animated animate__fadeInUp">
-        <div className="max-w-7xl mx-auto text-left">
+      <section aria-label="About INFEST" className="bg-black text-white py-20 px-6 animate__animated animate__fadeInUp">
+        <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-[#e6007a] mb-4">About INFEST</h2>
           <p className="text-lg text-gray-300 leading-relaxed">
             INFEST is a smart college event management platform designed to simplify the way events are created, approved, and experienced. From real-time updates to a completely paperless process, INFEST makes campus events seamless and exciting.
