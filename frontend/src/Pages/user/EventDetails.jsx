@@ -90,11 +90,6 @@ const EventDetails = () => {
                 <p><strong>Organized By:</strong> {event.organizedBy}</p>
                 <p><strong>Description:</strong> {event.description}</p>
                 <p><strong>Location:</strong> {event.location || 'TBD'}</p>
-                <p><strong>Status:</strong>
-                    <span className={`ml-2 px-2 py-1 rounded text-white ${event.status === 'accepted' ? 'bg-green-600' : event.status === 'rejected' ? 'bg-red-600' : 'bg-yellow-500'}`}>
-                        {event.status.toUpperCase()}
-                    </span>
-                </p>
                 <p><strong>Tags:</strong> {event.tags?.join(', ') || 'None'}</p>
                 <p><strong>Registered Users:</strong> {event.registeredUsers?.length || 0}</p>
             </div>
@@ -125,7 +120,7 @@ const EventDetails = () => {
                 ) : (
                     <button
                         onClick={handleRegister}
-                        className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition"
+                        className="bg-[#e6007a] text-white px-4 py-2 rounded hover:bg-[#e6007a] transition"
                     >
                         Register
                     </button>
