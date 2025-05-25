@@ -98,12 +98,6 @@ const EventDetails = () => {
                 {isCreator ? (
                     <>
                         <button
-                            onClick={handleEdit}
-                            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
-                        >
-                            Edit
-                        </button>
-                        <button
                             onClick={handleDelete}
                             className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition"
                         >
